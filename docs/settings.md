@@ -141,6 +141,7 @@ To understand more about the SSL context options, please refer to the [Python do
 
 * `--limit-concurrency <int>` - Maximum number of concurrent connections or tasks to allow, before issuing HTTP 503 responses. Useful for ensuring known memory usage patterns even under over-resourced loads.
 * `--limit-max-requests <int>` - Maximum number of requests to service before terminating the process. Useful when running together with a process manager, for preventing memory leaks from impacting long-running processes.
+* `--max-requests-jitter <int>` - The maximum jitter to add to the `--limit-max-requests` setting. The jitter causes the restart per worker to be randomized by `randint(0, max_requests_jitter)`. This is intended to stagger worker restarts to avoid all workers restarting at the same time.
 * `--backlog <int>` - Maximum number of connections to hold in backlog. Relevant for heavy incoming traffic. **Default:** *2048*.
 
 ## Timeouts
